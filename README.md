@@ -10,7 +10,7 @@ Idea:
 >>A slider can be used to model how much area (or how many people or both) can a hospital cater to.
 >>There can also be another slider to control what percentage of people get cured if they visit a hospital (e.g. 90%).
 
-
+ttt
 
 TO DOs:
 
