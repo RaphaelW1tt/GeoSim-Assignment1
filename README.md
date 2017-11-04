@@ -24,4 +24,5 @@ Notes: The time for getting cured can be modelled as a function of the time he w
 Copyright, License etc.
 
 Netlogo Virus model by: Wilensky, U. (1998).  NetLogo Virus model.  http://ccl.northwestern.edu/netlogo/models/Virus.  Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL.
+
 License: Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License
