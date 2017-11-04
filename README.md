@@ -1,4 +1,4 @@
-# GeoSim17-18
+# GeoSim17-18 change
 Repository for GeosimulationModelling (2017/2018)
 
 Task: Adjust a model by adding a functionality to elaborate a research question.
