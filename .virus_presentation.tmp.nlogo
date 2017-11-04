@@ -138,17 +138,17 @@ to go
 end
 
 ;to go-to-hospital
-;  let i 0
-;  let nump count persons
-;  let numh count hospitals
-;  loop
-;  [
-;    let j 0
-;    loop
-;    [
-;      let xcoordh = [list xcor] of hospital j
-;
-;end
+  let i 0
+  let nump count persons
+  let numh count hospitals
+  loop
+  [
+    let j 0
+    loop
+    [
+      let xcoordh = [list xcor] of hospital j
+
+end
 
 
 
