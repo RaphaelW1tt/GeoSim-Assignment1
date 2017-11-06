@@ -53,7 +53,7 @@ to setup
     set age random lifespan
   ]
 
-  ask n-of round((count persons) * initial-sick) persons
+  ask n-of round((count persons) * percent-sick) persons
     [ get-sick ]
 
   create-hospitals number-hospitals
