@@ -20,8 +20,6 @@ Slider #3' for the probability of getting cured if someone visits a hospital - i
 -------------------------------------
 
 Notes: The time for getting cured can be modelled as a function of the time he was sick, say 0.5*sick-time (from the variable 'sick-time' already defined). If sick for 1 week then 0, 2 weeks then 1 and 3 weeks then 1 etc.
-=======
-Notes: The time for getting cured can be modelled as a function of the time he was sick, say 0.5*sick-time (from the variable 'sick-time' already defined). If sick for 1 week then 0, 2 weeks then 1 and 3 weeks then 1 etc.
 
 Copyright, License etc.
 
