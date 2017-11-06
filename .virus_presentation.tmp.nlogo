@@ -34,7 +34,10 @@ globals
     patient-capacity     ;; the max number of persons at a hospital at a point of time
     catchment-area       ;; the radius from within which people can enter a hospital
     probability-cured    ;; the probability that a person is cured after he/she has visited a hospital
-    immunity-duration ]  ;; how many weeks immunity lasts
+    immunity-duration    ;; how many weeks immunity lasts
+;    i
+;    j
+]
 
 
 ;; The setup is divided into four procedures
@@ -50,15 +53,16 @@ to setup
     set age random lifespan
   ]
 
-  ask n-of 100 persons
+  ask n-of round((count persons) * percent-sick) persons
     [ get-sick ]
 
   create-hospitals number-hospitals
   [
     setxy random-xcor random-ycor
     set persons-admitted 0
-    set size 4
-    set shape "square"
+    set size hospital-size
+    set shape "square"; 2"
+    set color white
   ]
 ;  setup-turtles
   ;;setup-patches    ;; Patches = Hospitals. Patch area = "Catchment Area". Patch color (pcolor) = Yellow but Orange if it has already reached the max. capacity
@@ -93,6 +97,9 @@ end
 ;    [ get-sick ]
 ;end
 ;
+
+
+
 ;to create-hospitals number-hospitals
 ;  [ setxy random-xcor random-ycor ]
 ;end
@@ -132,22 +139,37 @@ to go
     if sick? [ recover-or-die ]
     ifelse sick? [ infect ] [ reproduce ]
   ]
+
+  go-to-hospital
+
   update-global-variables
   update-display
   tick
 end
 
-;to go-to-hospital
-  let i 0
+to go-to-hospital
   let nump count persons
   let numh count hospitals
-  loop
+; foreach [xcor] of hospitals [ x -> show (round x) ]
+  foreach [who] of persons
   [
-    let j 0
-    loop
+  i ->
+    let xcoordp [xcor] of person i
+    let ycoordp [ycor] of person i
+    foreach [who] of hospitals
     [
-      let xcoordh = [list xcor] of hospital j
+    j ->
+      let xcoordh [xcor] of hospital j
+      let ycoordh [ycor] of hospital j
+;      print(xcoordh)
+;      print(ycoordh)
 
+      if xcoordp > xcoordh - (hospital-size / 2) and xcoordp < xcoordh + (hospital-size / 2) and ycoordp > ycoordh - (hospital-size / 2) and ycoordp < ycoordh + (hospital-size / 2)
+      [
+        ask person i [ become-immune ]
+      ]
+    ]
+  ]
 end
 
 
@@ -223,8 +245,8 @@ end
 GRAPHICS-WINDOW
 280
 10
-778
-509
+722
+453
 -1
 -1
 14.0
@@ -237,10 +259,10 @@ GRAPHICS-WINDOW
 1
 1
 1
--17
-17
--17
-17
+-15
+15
+-15
+15
 1
 1
 1
@@ -356,7 +378,7 @@ number-people
 number-people
 10
 carrying-capacity
-238.0
+300.0
 1
 1
 NIL
@@ -406,16 +428,46 @@ turtle-shape
 0
 
 SLIDER
-40
-265
-212
-298
+50
+245
+222
+278
 number-hospitals
 number-hospitals
 1
 10
-7.0
+3.0
 1
+1
+NIL
+HORIZONTAL
+
+SLIDER
+45
+290
+217
+323
+hospital-size
+hospital-size
+3
+10
+8.0
+0.5
+1
+NIL
+HORIZONTAL
+
+SLIDER
+310
+490
+482
+523
+initial-sick
+initial-sick
+0
+1
+0.5
+0.01
 1
 NIL
 HORIZONTAL
