@@ -53,7 +53,7 @@ to setup
     set age random lifespan
   ]
 
-  ask n-of round((count persons) * percent-sick) persons
+  ask n-of round((count persons) * initial-sick) persons
     [ get-sick ]
 
   create-hospitals number-hospitals
@@ -269,6 +269,16 @@ GRAPHICS-WINDOW
 ticks
 30.0
 
+TEXTBOX
+0
+0
+0
+0
+NIL
+11
+0.0
+1
+
 SLIDER
 40
 155
@@ -350,9 +360,9 @@ NIL
 
 PLOT
 15
-375
+435
 267
-539
+599
 Populations
 weeks
 people
@@ -385,10 +395,10 @@ NIL
 HORIZONTAL
 
 MONITOR
-28
-328
-103
-373
+15
+385
+90
+430
 NIL
 %infected
 1
@@ -396,10 +406,10 @@ NIL
 11
 
 MONITOR
-105
-328
-179
-373
+95
+385
+169
+430
 NIL
 %immune
 1
@@ -407,10 +417,10 @@ NIL
 11
 
 MONITOR
-181
-329
-255
-374
+175
+385
+249
+430
 years
 ticks / 52
 1
@@ -429,39 +439,39 @@ turtle-shape
 
 SLIDER
 50
-245
+265
 222
-278
+298
 number-hospitals
 number-hospitals
-1
+0
 10
-3.0
+2.0
 1
 1
 NIL
 HORIZONTAL
 
 SLIDER
-45
-290
-217
-323
+50
+305
+222
+338
 hospital-size
 hospital-size
 3
 10
-8.0
+7.5
 0.5
 1
 NIL
 HORIZONTAL
 
 SLIDER
-310
-490
-482
-523
+50
+345
+222
+378
 initial-sick
 initial-sick
 0
