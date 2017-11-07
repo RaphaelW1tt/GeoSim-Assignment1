@@ -15,10 +15,6 @@ persons-own
     sick-time            ;; how long, in weeks, the turtle has been infectious
     age ]                ;; how many weeks old the turtle is
 
-hospitals-own
-[
-  persons-admitted       ;; the number of persons admitted currently
-]
 ;turtles-own
 ;  [ sick?                ;; if true, the turtle is infectious
 ;    remaining-immunity   ;; how many weeks of immunity the turtle has left
@@ -31,13 +27,8 @@ globals
     lifespan             ;; the lifespan of a turtle
     chance-reproduce     ;; the probability of a turtle generating an offspring each tick
     carrying-capacity    ;; the number of turtles that can be in the world at one time
-    patient-capacity     ;; the max number of persons at a hospital at a point of time
-    catchment-area       ;; the radius from within which people can enter a hospital
-    probability-cured    ;; the probability that a person is cured after he/she has visited a hospital
     immunity-duration    ;; how many weeks immunity lasts
-;    i
-;    j
-]
+  ]
 
 
 ;; The setup is divided into four procedures
@@ -59,7 +50,6 @@ to setup
   create-hospitals number-hospitals
   [
     setxy random-xcor random-ycor
-    set persons-admitted 0
     set size hospital-size
     set shape "square"; 2"
     set color white
@@ -129,7 +119,6 @@ to setup-constants
   set carrying-capacity 300
   set chance-reproduce 1
   set immunity-duration 52
-  set patient-capacity 25
 end
 
 to go
@@ -350,9 +339,9 @@ NIL
 
 PLOT
 15
-375
+435
 267
-539
+599
 Populations
 weeks
 people
@@ -385,10 +374,10 @@ NIL
 HORIZONTAL
 
 MONITOR
-28
-328
-103
-373
+15
+385
+90
+430
 NIL
 %infected
 1
@@ -396,10 +385,10 @@ NIL
 11
 
 MONITOR
-105
-328
-179
-373
+95
+385
+169
+430
 NIL
 %immune
 1
@@ -407,10 +396,10 @@ NIL
 11
 
 MONITOR
-181
-329
-255
-374
+175
+385
+249
+430
 years
 ticks / 52
 1
@@ -429,39 +418,39 @@ turtle-shape
 
 SLIDER
 50
-245
+265
 222
-278
+298
 number-hospitals
 number-hospitals
-1
+0
 10
-3.0
+2.0
 1
 1
 NIL
 HORIZONTAL
 
 SLIDER
-45
-290
-217
-323
+50
+305
+222
+338
 hospital-size
 hospital-size
 3
 10
-8.0
+7.5
 0.5
 1
 NIL
 HORIZONTAL
 
 SLIDER
-310
-490
-482
-523
+50
+345
+222
+378
 initial-sick
 initial-sick
 0
@@ -471,6 +460,16 @@ initial-sick
 1
 NIL
 HORIZONTAL
+
+TEXTBOX
+80
+245
+230
+263
+Extended Functionality
+11
+0.0
+1
 
 @#$#@#$#@
 ## WHAT IS IT?

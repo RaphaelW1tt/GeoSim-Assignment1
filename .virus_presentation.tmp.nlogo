@@ -31,12 +31,7 @@ globals
     lifespan             ;; the lifespan of a turtle
     chance-reproduce     ;; the probability of a turtle generating an offspring each tick
     carrying-capacity    ;; the number of turtles that can be in the world at one time
-    patient-capacity     ;; the max number of persons at a hospital at a point of time
-    catchment-area       ;; the radius from within which people can enter a hospital
-    probability-cured    ;; the probability that a person is cured after he/she has visited a hospital
     immunity-duration    ;; how many weeks immunity lasts
-;    i
-;    j
 ]
 
 
@@ -129,7 +124,6 @@ to setup-constants
   set carrying-capacity 300
   set chance-reproduce 1
   set immunity-duration 52
-  set patient-capacity 25
 end
 
 to go
@@ -268,16 +262,6 @@ GRAPHICS-WINDOW
 1
 ticks
 30.0
-
-TEXTBOX
-0
-0
-0
-0
-NIL
-11
-0.0
-1
 
 SLIDER
 40
@@ -481,6 +465,16 @@ initial-sick
 1
 NIL
 HORIZONTAL
+
+TEXTBOX
+80
+245
+230
+263
+Extended Functionality
+11
+0.0
+1
 
 @#$#@#$#@
 ## WHAT IS IT?
