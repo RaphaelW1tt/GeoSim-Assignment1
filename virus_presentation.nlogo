@@ -51,7 +51,7 @@ to setup
   [
     setxy random-xcor random-ycor
     set size hospital-size
-    set shape "square"; 2"
+    set shape "square"
     set color white
   ]
 ;  setup-turtles
@@ -137,9 +137,6 @@ to go
 end
 
 to go-to-hospital
-  let nump count persons
-  let numh count hospitals
-; foreach [xcor] of hospitals [ x -> show (round x) ]
   foreach [who] of persons
   [
   i ->
@@ -150,8 +147,6 @@ to go-to-hospital
     j ->
       let xcoordh [xcor] of hospital j
       let ycoordh [ycor] of hospital j
-;      print(xcoordh)
-;      print(ycoordh)
 
       if xcoordp > xcoordh - (hospital-size / 2) and xcoordp < xcoordh + (hospital-size / 2) and ycoordp > ycoordh - (hospital-size / 2) and ycoordp < ycoordh + (hospital-size / 2)
       [

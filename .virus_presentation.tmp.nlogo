@@ -15,10 +15,6 @@ persons-own
     sick-time            ;; how long, in weeks, the turtle has been infectious
     age ]                ;; how many weeks old the turtle is
 
-hospitals-own
-[
-  persons-admitted       ;; the number of persons admitted currently
-]
 ;turtles-own
 ;  [ sick?                ;; if true, the turtle is infectious
 ;    remaining-immunity   ;; how many weeks of immunity the turtle has left
@@ -32,7 +28,7 @@ globals
     chance-reproduce     ;; the probability of a turtle generating an offspring each tick
     carrying-capacity    ;; the number of turtles that can be in the world at one time
     immunity-duration    ;; how many weeks immunity lasts
-]
+  ]
 
 
 ;; The setup is divided into four procedures
@@ -54,9 +50,8 @@ to setup
   create-hospitals number-hospitals
   [
     setxy random-xcor random-ycor
-    set persons-admitted 0
     set size hospital-size
-    set shape "square"; 2"
+    set shape "square"
     set color white
   ]
 ;  setup-turtles
@@ -144,7 +139,6 @@ end
 to go-to-hospital
   let nump count persons
   let numh count hospitals
-; foreach [xcor] of hospitals [ x -> show (round x) ]
   foreach [who] of persons
   [
   i ->
